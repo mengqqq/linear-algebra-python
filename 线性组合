@@ -1,0 +1,64 @@
+#makes python package Numpy avaiable using import method
+import numpy as np
+#Creats matrix t (right side of the augemnted matrix)
+t=np.array([4,11])
+#Creats matrix vw (left side of the augmented matrix)
+vw=np.array([[1,2],[3,5]])
+#print ("\nMatrix vw:",vw,"\nVector t:",t,sep="\n")
+
+
+def check_vector_span(set_of_vectors,vectors_to_check):
+    #creates an empty vector of correct side
+    vector_of_scalars=np.array([None]*set_of_vectors.shape[0])
+    
+    #solves for scalars that make the queation true if vector is within the span
+    try:
+        #TODO:use np.linalg.solve() function here to solve for vector_of_scalars
+        vector_of_scalars=None
+        if not(vector_of_scalars is None):
+            print("\nVector is within span.\nScalars in s:", vector_of_scalars)
+    #Handles the cases when the vector is Not within the span
+    expect Exception as exception_type:
+        if str(exception_type)=="Sigular matrix":
+            print("\nNo single solution\nVector is Not within span")
+        else:
+            print("\nUnexpected Exception Error:",exception_type)
+    return vector_of_scalars
+    
+    
+    
+#Call to check_vector_span to check vectors in Equation1
+print("\nEquation 1:\nMatrix vw:," vw,"\nVector t:",t,sep="\n")
+vw2=np.array([1,2],[2,4])
+t2=np.array([6,12])
+print("\nNew Vectors"\n Matrix vw2:",vw2,"\nVector t2:",t2,sep="\n")
+#Call to check_vector_span
+s2=check_vector_span(vw2,t2)
+
+#Call to check a new set of vectors vw2 and t3
+vw3=np.array([1,2],[1,2])
+t2=np.array([6,10])
+print("\nNew Vectors:\n Matrix vw3:",vw3,"\nVector t3:",t3,sep="\n")
+#Call to check_vector_span
+s3=check_vector_span(vw3,vw)
+
+$matplotlib inline
+import matplotlib.pyplot as plt
+plt.plot([4,0],[0,2],"b",linewidth=3)
+plt.plot([3.667,0],[0,2,3],"o-",linewidth=3)
+plt.plot([2],[1],"ro",linewidth=3)
+plt.xlabe("Single Solution")
+plt.show()
+
+
+import matplotlib.pyplot
+plt.plot([6,0],[0,3],"b",linewidth=5)
+plt.plot([1,4,6,0],[2,5,1,0,3],"o-",linewidth=2)
+plt.xlabel(["Redundant Equation"])
+plt.show()
+
+import matplotlib.pyplot as plt
+plt.plot([10,0],[0,5],"b",linewidth=3)
+plt.plot([0,6],[3,0]."o-",linewidth=3)
+plt,xlabel("No Solution")
+plt.show()
